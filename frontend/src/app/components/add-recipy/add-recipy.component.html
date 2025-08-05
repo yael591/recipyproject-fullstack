@@ -1,0 +1,70 @@
+<div class="container mt-4" style="max-width: 600px;">
+    <h2 class="mb-4 text-center">הוספת מתכון חדש</h2>
+  
+    <form (ngSubmit)="toAddRecpy()">
+  
+      <div class="mb-3">
+        <label class="form-label">שם מתכון:</label>
+        <input type="text" class="form-control" [(ngModel)]="newRecipy.recipyName" name="recipyName" required>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">לתמונה:</label>
+        <input type="text" class="form-control" [(ngModel)]="newRecipy.recipyPic" name="recipyPic">
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">רמה:</label>
+        <select class="form-select" [(ngModel)]="newRecipy.recipyLevel" name="recipyLevel">
+          <option value="קל">קל</option>
+          <option value="בינוני">בינוני</option>
+          <option value="קשה">קשה</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">משך זמן:</label>
+        <input type="text" class="form-control" [(ngModel)]="newRecipy.recipyTime" name="recipyTime">
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">סוג:</label>
+        <select class="form-select" [(ngModel)]="newRecipy.recipySort" name="recipySort">
+          <option value="בשרי">בשרי</option>
+          <option value="חלבי">חלבי</option>
+          <option value="פרווה">פרווה</option>
+        </select>
+      </div>
+  
+      <hr>
+  
+      <h5 class="mb-2">רכיבים:</h5>
+  
+      <div *ngFor="let ing of newRecipy.ingredients; let i = index" class="border rounded p-3 mb-3">
+        <div class="mb-2">
+          <label class="form-label">שם רכיב {{ i + 1 }}:</label>
+          <input type="text" class="form-control" [(ngModel)]="ing.name" name="ingredientName{{i}}" required>
+        </div>
+        <div class="mb-2">
+          <label class="form-label">כמות:</label>
+          <input type="text" class="form-control" [(ngModel)]="ing.quantity" name="ingredientQuantity{{i}}" required>
+        </div>
+        <button type="button" class="btn btn-outline-danger btn-sm" (click)="newRecipy.ingredients.splice(i, 1)">
+          הסר רכיב
+        </button>
+      </div>
+  
+      <button type="button" class="btn btn-outline-secondary mb-3" (click)="newRecipy.ingredients.push({name:'', quantity:''})">
+        ➕ הוסף רכיב
+      </button>
+  
+      <br>
+      <div class="mb-3">
+        <label class="form-label">קוד משתמש:</label>
+        <input type="text" class="form-control" [(ngModel)]="newRecipy.recipyUserId" name="recipyUserId">
+      </div>
+      <button type="submit" class="btn btn-success w-100">📤 שלח מתכון</button>
+  
+    </form>
+  </div>
+  

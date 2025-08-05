@@ -1,0 +1,12 @@
+
+<div class="container mt-5" style="max-width: 400px;">
+    <h2 class="mb-4 text-center">התחברות</h2>
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder="שם משתמש" [(ngModel)]="userLogin.nameUser">
+    </div>
+    <div class="mb-3">
+      <input type="password" class="form-control" placeholder="סיסמה" [(ngModel)]="userLogin.passUser">
+    </div>
+    <button class="btn btn-primary w-100" (click)="toLogin()">התחבר</button>
+  </div>
+  

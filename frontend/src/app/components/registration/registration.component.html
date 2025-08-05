@@ -1,0 +1,48 @@
+<div class="container mt-4" style="max-width: 500px;">
+  <h2 class="mb-4 text-center">הרשמה</h2>
+
+  <div class="mb-3">
+    <label class="form-label">שם משתמש:</label>
+    <input type="text" class="form-control" [(ngModel)]="user.nameUser">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">סיסמה:</label>
+    <input type="password" class="form-control" [(ngModel)]="user.passUser">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">טלפון:</label>
+    <input type="tel" class="form-control" [(ngModel)]="user.phoneUser">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">כתובת:</label>
+    <input type="text" class="form-control" [(ngModel)]="user.addressUser">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">האם מנהל?</label>
+    <select class="form-select" [(ngModel)]="user.isManager">
+      <option [value]="true">כן</option>
+      <option [value]="false">לא</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">הוסף מתכון אהוב:</label>
+    <input type="text" class="form-control mb-2" [(ngModel)]="singleRecipy" >
+    <button class="btn btn-secondary" (click)="addRecipy()">הוסף לרשימה</button>
+  
+    <ul class="mt-2">
+      <li *ngFor="let r of user.myRecipies; let i = index">
+        {{ r }}
+        <button class="btn btn-sm btn-danger ms-2" (click)="removeRecipy(i)">הסר מהרשימה</button>
+      </li>
+    </ul>
+  </div>
+
+  <button class="btn btn-primary w-100" (click)="keepAndAddUser()">שמור פרטים</button>
+</div>
+
+

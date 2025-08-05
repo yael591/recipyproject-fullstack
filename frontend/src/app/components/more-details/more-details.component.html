@@ -1,0 +1,23 @@
+
+<div class="container mt-5" *ngIf="recipy">
+    <div class="card shadow p-4">
+      <h2 class="mb-3">{{ recipy.recipyName }}</h2>
+      <img *ngIf="recipy.recipyPic" [src]="'http://localhost:1234/img/' + recipy.recipyPic"
+           alt="תמונה של מתכון" class="img-fluid rounded mb-3" width="300" height="200px"
+           >
+  
+      <p><strong>רמה:</strong> {{ recipy.recipyLevel }}</p>
+      <p><strong>סוג:</strong> {{ recipy.recipySort }}</p>
+      <p><strong>משך זמן:</strong> {{ recipy.recipyTime }}</p>
+  
+      <h5 class="mt-4">רכיבים:</h5>
+      <ul class="list-group">
+        <li *ngFor="let ing of recipy.ingredients" class="list-group-item">
+          {{ ing.name }} - {{ ing.quantity }}
+        </li>
+      </ul>
+  
+      <button class="btn btn-secondary mt-3" (click)="back()">חזרה לדף הבית</button>
+    </div>
+  </div>
+  

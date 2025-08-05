@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+    <div class="container-fluid">
+      <ul class="navbar-nav ms-auto d-flex flex-row gap-3">
+        <li class="nav-item"><a class="nav-link" routerLink="/myHome">דף הבית</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/resinger">הרשמה</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/login">התחברות</a></li>
+        <li class="nav-item" *ngIf="username">
+          <a class="nav-link" routerLink="/addRecipy">הוספת מתכון</a>
+        </li>
+      </ul>
+      <span class="navbar-text text-white me-auto" *ngIf="username">
+        {{ username }}
+      </span>
+    </div>
+  </nav>
+  
+  <router-outlet></router-outlet>
+  
+   

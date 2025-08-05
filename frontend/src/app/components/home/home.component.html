@@ -1,0 +1,22 @@
+
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col" *ngFor="let item of arr">
+        <div class="card h-100">
+            <img [src]="'http://localhost:1234/img/' + item.recipyPic"
+            class="card-img-top object-fit-cover"
+            style="height: 200px"
+            alt="תמונה של מתכון">
+                      <div class="card-body">
+            <h5 class="card-title">{{ item.recipyName }}</h5>
+            <p class="card-text">רמה: {{ item.recipyLevel }}</p>
+            <a class="btn btn-outline-primary" [routerLink]="['/moreDetails', item._id]">פרטים נוספים</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<router-outlet></router-outlet>
+    
+
